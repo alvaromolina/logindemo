@@ -22,6 +22,13 @@ public class UserController {
         return "user/register";
     }
 
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public String login(Model model) {
+        model.addAttribute("user", new User());
+        return "user/login";
+    }
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String registration(@ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {

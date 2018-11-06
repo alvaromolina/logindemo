@@ -9,9 +9,17 @@ import javax.persistence.*;
 public class User {
 
     private Long id;
+
+    @Column(unique=true)
     private String username;
+
     private String password;
     private String passwordConfirm;
+
+    private String rol;
+
+    public User() {
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,5 +54,13 @@ public class User {
 
     public void setPasswordConfirm(String passwordConfirm) {
         this.passwordConfirm = passwordConfirm;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }
